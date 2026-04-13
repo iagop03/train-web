@@ -1,34 +1,28 @@
 ## Descripción
-Por favor incluir un resumen de los cambios realizados.
+Describe los cambios realizados en este PR.
 
-## Tipo de cambio
+## Tipo de Cambio
 - [ ] Bug fix (cambio que soluciona un problema)
 - [ ] Nueva feature (cambio que añade funcionalidad)
-- [ ] Breaking change (cambio que causa incompatibilidad)
-- [ ] Actualización de dependencias
+- [ ] Breaking change (cambio que afecta funcionalidad existente)
 - [ ] Documentación
-
-## Testing realizado
-Describe los tests realizados:
-- [ ] Unit tests
-- [ ] E2E tests
-- [ ] Manual testing en desktop
-- [ ] Manual testing en mobile
-
-## Performance
-- [ ] He verificado el impacto en performance
-- [ ] He ejecutado Lighthouse audit
-- [ ] Bundle size se ha mantenido o reducido
+- [ ] Estilos/UI
 
 ## Checklist
 - [ ] Mi código sigue las guías de estilo del proyecto
-- [ ] He realizado auto-review
-- [ ] He añadido comentarios en código complejo
-- [ ] He actualizado la documentación
-- [ ] Tests nuevos y existentes pasan
-- [ ] No hay warnings de console
-- [ ] Accesibilidad verificada (a11y)
+- [ ] He realizado una auto-revisión de mi propio código
+- [ ] He testeado la feature/bugfix en múltiples navegadores
+- [ ] He actualizado la documentación correspondiente
+- [ ] No hay console errors o warnings
+- [ ] He añadido unit/integration tests
+- [ ] Los tests pasan localmente
+- [ ] La aplicación se compila sin errores
 
-## Screenshots/Videos (si aplica)
+## Screenshots
+Adjunta screenshots de cambios visuales
 
-## Notas adicionales
+## Testing
+Describe cómo se ha testeado este cambio:
+
+## Issues Relacionados
+Fixes #(issue number)

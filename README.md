@@ -1,22 +1,27 @@
-# TrAIn - AI Gym Tracker Web
+# TrAIn Web
 
-## Descripción
-Aplicación web para TrAIn (AI Gym Tracker) desarrollada con Angular v17. Proporciona una interfaz responsiva para gestionar entrenamientos y obtener análisis de IA.
+**AI Gym Tracker** - Web Frontend Angular v17
 
-## Stack Tecnológico
-- **Angular 17**
-- **TypeScript**
-- **Bootstrap / Tailwind CSS**
-- **RxJS**
-- **Angular Material**
-- **GCP** (Hosting)
+Aplicación web para el seguimiento de ejercicios en el gimnasio.
 
-## Requisitos Previos
-- Node.js 18+
-- npm 9+ o yarn
-- Angular CLI 17+
+## Características
 
-## Instalación Local
+- ✅ Framework Angular v17
+- ✅ Autenticación con Keycloak
+- ✅ Material Design
+- ✅ PWA Ready
+- ✅ CI/CD con GitHub Actions
+
+## Tecnologías
+
+- **Framework**: Angular v17
+- **Node.js**: 20.x
+- **UI Library**: Angular Material
+- **Autenticación**: Keycloak
+- **Testing**: Jasmine, Karma
+- **Build Tool**: Webpack
+
+## Inicio Rápido
 
 ```bash
 # Clonar repositorio
@@ -26,62 +31,26 @@ cd train-web
 # Instalar dependencias
 npm install
 
-# Configurar variables de entorno
-cp .env.example .env.local
-
 # Ejecutar en desarrollo
+npm start
+# o
 ng serve
 ```
 
-## Estructura del Proyecto
-```
-train-web/
-├── src/
-│   ├── app/
-│   │   ├── core/
-│   │   ├── shared/
-│   │   ├── features/
-│   │   │   ├── auth/
-│   │   │   ├── workouts/
-│   │   │   ├── exercises/
-│   │   │   └── analytics/
-│   │   ├── app.module.ts
-│   │   └── app.component.ts
-│   ├── assets/
-│   ├── environments/
-│   └── main.ts
-├── angular.json
-├── tsconfig.json
-└── package.json
-```
+La aplicación estará disponible en `http://localhost:4200`
 
-## Testing
+## Documentación
+
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) para instrucciones de desarrollo.
+
+## Build para Producción
+
 ```bash
-# Unit tests
-ng test
-
-# E2E tests
-ng e2e
-
-# Coverage
-ng test --code-coverage
-```
-
-## Build
-```bash
-# Build para producción
+npm run build:prod
+# o
 ng build --configuration production
-
-# Analizar bundle
-ng build --stats-json
-webpack-bundle-analyzer dist/train-web/stats.json
 ```
-
-## Deployment
-Ver [DEPLOYMENT.md](./docs/DEPLOYMENT.md) para instrucciones de deployment a GCP.
-
-## Contribución
-Por favor revisa [CONTRIBUTING.md](./CONTRIBUTING.md) antes de hacer cambios.
 
 ## Licencia
+
 MIT
