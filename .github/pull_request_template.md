@@ -1,28 +1,43 @@
 ## Descripción
 Describe los cambios realizados en este PR.
 
-## Tipo de Cambio
-- [ ] Bug fix (cambio que soluciona un problema)
-- [ ] Nueva feature (cambio que añade funcionalidad)
-- [ ] Breaking change (cambio que afecta funcionalidad existente)
-- [ ] Documentación
-- [ ] Estilos/UI
+## Tipo de cambio
+- [ ] Bug fix (arreglo que no rompe funcionalidad existente)
+- [ ] Nueva funcionalidad
+- [ ] Breaking change (arreglo o funcionalidad que rompe funcionalidad existente)
+- [ ] Cambio de documentación
+- [ ] Mejora de estilos/UI
+
+## Cambios relacionados
+- [ ] Backend
+- [ ] Frontend Web
+- [ ] Mobile
+- [ ] DevOps/Infraestructura
+
+## Como se ha probado?
+Describe las pruebas realizadas para verificar los cambios.
+
+- [ ] Unit Tests
+- [ ] E2E Tests
+- [ ] Manual Testing en múltiples navegadores
+- [ ] Testing responsivo
 
 ## Checklist
-- [ ] Mi código sigue las guías de estilo del proyecto
+- [ ] Mi código sigue las guías de estilo del proyecto (ESLint, Prettier)
 - [ ] He realizado una auto-revisión de mi propio código
-- [ ] He testeado la feature/bugfix en múltiples navegadores
+- [ ] He comentado mi código, particularmente en áreas complejas
 - [ ] He actualizado la documentación correspondiente
-- [ ] No hay console errors o warnings
-- [ ] He añadido unit/integration tests
-- [ ] Los tests pasan localmente
-- [ ] La aplicación se compila sin errores
+- [ ] Mis cambios no generan nuevas advertencias
+- [ ] He añadido tests que prueban que mi fix es efectivo o que mi funcionalidad funciona
+- [ ] Los tests nuevos y existentes pasan localmente con mis cambios
+- [ ] La aplicación se ejecuta correctamente sin errores en consola
+- [ ] He testeado en diferentes tamaños de pantalla
 
 ## Screenshots
-Adjunta screenshots de cambios visuales
+Añade screenshots para cambios visuales.
 
-## Testing
-Describe cómo se ha testeado este cambio:
+## Performance Impact
+Describe cualquier impacto en performance.
 
-## Issues Relacionados
-Fixes #(issue number)
+## Notas adicionales
+Añade cualquier información adicional relevante.

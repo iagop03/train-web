@@ -1,21 +1,20 @@
 # TrAIn Web
 
-Aplicación web Angular v17 para TrAIn - AI Gym Tracker.
+Aplicación web para TrAIn (AI gym tracker) - Rastreador de ejercicios con IA.
 
-## Stack Tecnológico
+## Tech Stack
 
 - **Angular 17**
-- **TypeScript 5.2+**
+- **TypeScript 5.x**
 - **RxJS**
-- **Angular Material**
-- **Keycloak** (Autenticación)
-- **Google Cloud Platform**
+- **Material Design**
+- **Node.js 20+**
 
-## Prerequisitos
+## Requisitos previos
 
-- Node.js 18.x o superior
-- npm 9.x o yarn 3.x
-- Angular CLI 17.x
+- Node.js 20+
+- npm 10+
+- Angular CLI 17+
 
 ## Instalación
 
@@ -27,85 +26,68 @@ cd train-web
 # Instalar dependencias
 npm install
 
-# Configurar variables de entorno
-cp .env.example .env.local
+# Instalar Angular CLI
+npm install -g @angular/cli@17
 ```
 
-## Development Server
+## Scripts disponibles
 
 ```bash
-# Iniciar servidor de desarrollo
-ng serve
+# Desarrollo
+npm start                   # Ejecutar en desarrollo (ng serve)
+npm run dev                 # Ejecutar con HMR
 
-# Navegar a http://localhost:4200/
+# Build
+npm run build              # Build para producción
+npm run build:prod         # Build optimizado
+
+# Tests
+npm test                   # Ejecutar tests (watch mode)
+npm run test:ci            # Ejecutar tests (CI mode)
+npm run e2e                # Ejecutar tests E2E
+
+# Linting
+npm run lint               # Ejecutar ESLint
+npm run lint:fix           # Arreglar problemas automáticamente
+npm run format             # Ejecutar Prettier
+
+# Docker
+npm run docker:build       # Buildear imagen Docker
+npm run docker:run         # Ejecutar en Docker
 ```
 
-## Build
-
-```bash
-# Build de producción
-ng build --configuration production
-```
-
-## Testing
-
-```bash
-# Unit tests
-ng test
-
-# E2E tests
-ng e2e
-
-# Coverage
-ng test --code-coverage
-```
-
-## Estructura del Proyecto
+## Estructura del proyecto
 
 ```
 src/
 ├── app/
-│   ├── features/
-│   │   ├── auth/
-│   │   ├── workouts/
-│   │   ├── exercises/
-│   │   └── dashboard/
-│   ├── shared/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── interceptors/
-│   │   ├── guards/
-│   │   └── models/
-│   ├── core/
-│   │   └── services/
-│   ├── app.component.ts
-│   └── app.routes.ts
+│   ├── components/
+│   ├── services/
+│   ├── models/
+│   ├── pages/
+│   ├── guards/
+│   ├── interceptors/
+│   └── app-routing.module.ts
 ├── assets/
 ├── styles/
-├── main.ts
-└── index.html
+├── environments/
+└── main.ts
 ```
 
-## Code Style
+## Desarrollo
 
 ```bash
-# Format con Prettier
-npm run prettier
+# Iniciar servidor de desarrollo
+npm start
 
-# Lint con ESLint
-npm run lint
-
-# Lint fix
-npm run lint:fix
+# Navegar a http://localhost:4200/
+# La aplicación se recargará automáticamente si cambias los archivos
 ```
 
-## Contributing
+## Contribuir
 
-1. Crear feature branch: `git checkout -b feature/TRAIN-XXX`
-2. Commit changes: `git commit -am 'feat: descripción'`
-3. Push a branch: `git push origin feature/TRAIN-XXX`
-4. Abrir Pull Request
+Ver [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## License
+## Licencia
 
-MIT License
+MIT

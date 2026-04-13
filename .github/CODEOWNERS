@@ -1,10 +1,22 @@
-# Frontend Web
-/src/ @iagop03
-/angular.json @iagop03
-/package.json @iagop03
-/.github/ @iagop03
+# TrAIn Web Code Owners
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners
+* @iagop03
+
+# Web frontend
+src/ @iagop03
 
 # Configuration
-/tsconfig.json @iagop03
-/.eslintrc.json @iagop03
-/.prettierrc @iagop03
+angular.json @iagop03
+tsconfig.json @iagop03
+package.json @iagop03
+package-lock.json @iagop03
+
+# Styles
+src/styles/ @iagop03
+src/assets/ @iagop03
+
+# DevOps
+Dockerfile @iagop03
+.github/ @iagop03
