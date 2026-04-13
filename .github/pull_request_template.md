@@ -2,31 +2,36 @@
 Describe los cambios realizados en este PR.
 
 ## Tipo de cambio
-- [ ] Bug fix (correción que no rompe funcionalidad existente)
-- [ ] Nueva feature (nueva funcionalidad que no rompe funcionalidad existente)
-- [ ] Breaking change (correción o feature que rompe funcionalidad existente)
-- [ ] Cambio de documentación
-- [ ] Cambio de estilos/UI
+- [ ] Bug fix (cambio que arregla un issue)
+- [ ] Feature (nueva funcionalidad)
+- [ ] Breaking change (cambio que rompe funcionalidad existente)
+- [ ] Documentación
+- [ ] Estilos/UI
 
-## Cambios realizados
-- [ ] He leído las guías de contribución
-- [ ] Mi código sigue el estilo de código del proyecto
-- [ ] He realizado un self-review de mi propio código
-- [ ] He comentado mi código, particularmente en áreas complejas
-- [ ] He realizado cambios en la documentación si es necesario
-- [ ] Mis cambios no generan nuevas advertencias
-- [ ] He ejecutado tests localmente
-- [ ] He verificado la accesibilidad (a11y)
-- [ ] He verificado responsividad en diferentes dispositivos
+## Checklist
+- [ ] He leído la documentación de contribución
+- [ ] Mis cambios siguen la guía de estilos Angular
+- [ ] He realizado self-review de mi código
+- [ ] He actualizado documentación si es necesario
+- [ ] No hay warnings en la consola
+- [ ] He testeado en múltiples browsers (Chrome, Firefox, Safari, Edge)
+- [ ] He añadido tests unitarios (>80% coverage)
+- [ ] Los tests nuevos y existentes pasan
+- [ ] He validado accesibilidad (a11y)
 
-## Testing
-Describe los tests realizados y pasos para verificar los cambios.
+## Cambios en UI/UX
+- [ ] Responsive design verificado
+- [ ] Contraste de colores OK
+- [ ] Íconos escalables
 
 ## Screenshots
-Añade screenshots de los cambios visuales o nuevas funcionalidades.
+Añade screenshots antes/después si hay cambios visuales.
 
-## Breaking changes
-Describe cualquier breaking change y cómo migrar.
+## Testing
+Describe cómo se ha testeado este cambio.
 
-## Notas adicionales
-Añade cualquier información adicional relevante para el reviewer.
+## Dependencias
+Cualquier librería nueva o cambios en versiones.
+
+## Issues relacionados
+Fix #(issue number)

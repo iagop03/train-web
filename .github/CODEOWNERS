@@ -1,22 +1,19 @@
-# TrAIn Web Code Owners
+# Code Owners for TrAIn Web
 
-# Default owners
-* @iagop03
+# Frontend team
+@iagop03
 
-# Configuration and build
-/.github/ @iagop03
-package.json @iagop03
+# Modules
+/src/app/core/ @iagop03
+/src/app/shared/ @iagop03
+/src/app/features/workouts/ @iagop03
+/src/app/features/auth/ @iagop03
+/src/app/features/dashboard/ @iagop03
+
+# Styling
+/src/styles/ @iagop03
+/src/assets/ @iagop03
+
+# Configuration
 angular.json @iagop03
 tsconfig.json @iagop03
-
-# Components and features
-/src/app/features/ @iagop03
-/src/app/components/ @iagop03
-
-# Services and state
-/src/app/services/ @iagop03
-/src/app/store/ @iagop03
-
-# Styles
-/src/styles/ @iagop03
-/src/app/shared/styles/ @iagop03

@@ -1,135 +1,234 @@
 # Guía de Contribución - TrAIn Web
 
-## Comenzar
+## Inicio rápido
 
-1. Fork el repositorio
-2. Clona tu fork: `git clone https://github.com/tu-usuario/train-web.git`
-3. Añade el repositorio upstream: `git remote add upstream https://github.com/iagop03/train-web.git`
-4. Crea una rama para tu feature: `git checkout -b feature/TRAIN-XXX-descripcion`
+### Requisitos
+- Node.js 20+
+- npm 10+
+- Angular CLI 17
 
-## Requisitos
-
-- Node.js 18+
-- npm 9+
-- Angular CLI 17+
-
-## Configuración Local
+### Setup local
 
 ```bash
+# Clonar repo
+git clone https://github.com/iagop03/train-web.git
+cd train-web
+
 # Instalar dependencias
 npm install
 
-# Ejecutar servidor de desarrollo
+# Development server
 ng serve
-# o
-npm start
-
-# Ejecutar tests
-npm test
-
-# Build para producción
-npm run build
+# Navega a http://localhost:4200/
 ```
 
-## Estándares de Código
+## Workflow de desarrollo
 
-- Sigue la guía de estilo de Angular
-- Usa nombres descriptivos en inglés
-- Implementa one-way data binding
-- Usa TypeScript strict mode
-- Escribe tests para nuevas funcionalidades
-- Mantén cobertura de código > 80%
+1. **Crear rama**: `git checkout -b feature/TRAIN-XXX-descripcion`
+2. **Hacer cambios**: Seguir Angular Style Guide
+3. **Tests**: npm run test (cobertura >80%)
+4. **Lint**: npm run lint
+5. **Commit**: `git commit -m "TRAIN-XXX: descripción"`
+6. **Push**: `git push origin feature/TRAIN-XXX-descripcion`
+7. **PR**: Crear Pull Request
 
-## Convenciones de Commits
-
-```
-[TRAIN-XXX] Tipo: Descripción breve
-
-Descripción detallada si es necesario.
-
-Tipos permitidos:
-- feat: Nueva funcionalidad
-- fix: Corrección de bug
-- refactor: Refactorización de código
-- test: Añadir o actualizar tests
-- docs: Cambios en documentación
-- style: Cambios de formato
-- chore: Cambios en dependencias o configuración
-```
-
-## Estructura de Componentes
+## Estructura de carpetas
 
 ```
-feature/
-├── feature.module.ts
-├── feature.component.ts
-├── feature.component.html
-├── feature.component.scss
-├── feature.component.spec.ts
-└── services/
-    └── feature.service.ts
+src/
+├── app/
+│   ├── core/              # Servicios singleton
+│   │   ├── auth/
+│   │   ├── http/
+│   │   └── guards/
+│   ├── shared/            # Componentes/pipes reutilizables
+│   │   ├── components/
+│   │   ├── pipes/
+│   │   └── directives/
+│   ├── features/          # Feature modules
+│   │   ├── workouts/
+│   │   ├── dashboard/
+│   │   └── auth/
+│   └── app.component.ts
+├── assets/
+├── styles/
+│   ├── variables.scss
+│   ├── mixins.scss
+│   └── global.scss
+└── environments/
 ```
 
-## Pull Request Process
+## Convenciones de código
 
-1. Asegúrate de que tu rama está actualizada: `git pull upstream develop`
-2. Ejecuta tests localmente: `npm test`
-3. Ejecuta linting: `npm run lint`
-4. Build: `npm run build`
-5. Push a tu fork y crea un PR contra `develop`
-6. Llena el PR template completamente
-7. Incluye screenshots si hay cambios visuales
-8. Espera a que los CI checks pasen
-9. Solicita revisión de al menos 1 maintainer
-10. Responde a comentarios de revisión
-11. Merge solo después de aprobación
+### Naming
+- Archivos: `feature.component.ts`, `feature.service.ts`
+- Clases: PascalCase
+- Métodos/variables: camelCase
+- Constantes: UPPER_SNAKE_CASE
+
+### Componentes
+
+```typescript
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-workout-list',
+  templateUrl: './workout-list.component.html',
+  styleUrls: ['./workout-list.component.scss']
+})
+export class WorkoutListComponent implements OnInit {
+  @Input() workouts: Workout[] = [];
+  @Output() selectWorkout = new EventEmitter<Workout>();
+  
+  constructor(private workoutService: WorkoutService) {}
+  
+  ngOnInit(): void {
+    this.loadWorkouts();
+  }
+  
+  private loadWorkouts(): void {
+    this.workoutService.getAll().subscribe(
+      workouts => this.workouts = workouts
+    );
+  }
+  
+  onSelectWorkout(workout: Workout): void {
+    this.selectWorkout.emit(workout);
+  }
+}
+```
+
+### Servicios
+
+```typescript
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WorkoutService {
+  private apiUrl = '/api/v1/workouts';
+  
+  constructor(private http: HttpClient) {}
+  
+  getAll(): Observable<Workout[]> {
+    return this.http.get<Workout[]>(this.apiUrl);
+  }
+  
+  getById(id: string): Observable<Workout> {
+    return this.http.get<Workout>(`${this.apiUrl}/${id}`);
+  }
+}
+```
 
 ## Testing
 
-Escribe tests para:
-- Lógica de componentes
-- Servicios y llamadas HTTP
-- Pipes y directivas
-- Guards
-- Interceptores
-
 ```bash
-# Tests unitarios
-npm test
+# Unit tests
+ng test
 
-# Tests e2e
-npm run e2e
+# E2E tests
+ng e2e
 
-# Cobertura
-npm run test:coverage
+# Coverage report
+ng test --code-coverage
+open coverage/index.html
 ```
 
-## Accesibilidad (a11y)
+### Test Example
 
-- Usa atributos ARIA apropiados
-- Asegura navegación por teclado
-- Mantén contraste de colores WCAG AA
-- Usa semantic HTML
+```typescript
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { WorkoutListComponent } from './workout-list.component';
 
-## Responsive Design
+describe('WorkoutListComponent', () => {
+  let component: WorkoutListComponent;
+  let fixture: ComponentFixture<WorkoutListComponent>;
+  
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [WorkoutListComponent]
+    }).compileComponents();
+    
+    fixture = TestBed.createComponent(WorkoutListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+  
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
 
-- Mobile-first approach
-- Breakpoints: 480px, 768px, 1024px, 1440px
-- Prueba en múltiples dispositivos
+## Linting & Formatting
 
-## Reportar Bugs
+```bash
+# Lint
+npm run lint
 
-Abre un issue con:
-- Descripción clara del bug
-- Pasos para reproducir
-- Comportamiento esperado vs actual
-- Screenshot/video si aplica
-- Navegador y SO
+# Format
+npm run format
+```
 
-## Sugerir Mejoras
+## Branch Protection Rules
 
-Abre un issue con:
-- Descripción clara de la mejora
-- Caso de uso
-- Beneficios
-- Posibles alternativas
+**main** & **develop**:
+- ✅ Require PR reviews (2 approvals)
+- ✅ Require status checks (CI/CD, tests, lint)
+- ✅ Require branches up to date
+- ✅ Dismiss stale reviews
+- ❌ Allow force pushes
+
+## Accessibility (a11y)
+
+- Usar semantic HTML
+- ARIA labels cuando sea necesario
+- Validar contraste (WCAG AA minimum)
+- Testear con keyboard navigation
+
+## Commit Messages
+
+```
+TRAIN-XXX: Brief description
+
+Optional details:
+- What changed
+- Why it changed
+- Any relevant context
+```
+
+## Performance
+
+- Usar OnPush change detection
+- Lazy load feature modules
+- Implementar trackBy en *ngFor
+- Usar RxJS operators apropiadamente (shareReplay, debounceTime)
+
+## Debugging
+
+```bash
+# Development build with source maps
+ng serve --source-map
+
+# Chrome DevTools
+# F12 -> Sources -> Breakpoints
+```
+
+## Build & Deployment
+
+```bash
+# Production build
+ng build --configuration production
+
+# Output: dist/train-web/
+```
+
+## Recursos
+
+- [Angular Docs](https://angular.io/docs)
+- [Angular Style Guide](https://angular.io/guide/styleguide)
+- [RxJS Docs](https://rxjs.dev/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
