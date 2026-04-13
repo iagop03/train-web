@@ -2,42 +2,31 @@
 Describe los cambios realizados en este PR.
 
 ## Tipo de cambio
-- [ ] Bug fix (arreglo que no rompe funcionalidad existente)
-- [ ] Nueva funcionalidad
-- [ ] Breaking change (arreglo o funcionalidad que rompe funcionalidad existente)
+- [ ] Bug fix (correción que no rompe funcionalidad existente)
+- [ ] Nueva feature (nueva funcionalidad que no rompe funcionalidad existente)
+- [ ] Breaking change (correción o feature que rompe funcionalidad existente)
 - [ ] Cambio de documentación
-- [ ] Mejora de estilos/UI
+- [ ] Cambio de estilos/UI
 
-## Cambios relacionados
-- [ ] Backend
-- [ ] Frontend Web
-- [ ] Mobile
-- [ ] DevOps/Infraestructura
-
-## Como se ha probado?
-Describe las pruebas realizadas para verificar los cambios.
-
-- [ ] Unit Tests
-- [ ] E2E Tests
-- [ ] Manual Testing en múltiples navegadores
-- [ ] Testing responsivo
-
-## Checklist
-- [ ] Mi código sigue las guías de estilo del proyecto (ESLint, Prettier)
-- [ ] He realizado una auto-revisión de mi propio código
+## Cambios realizados
+- [ ] He leído las guías de contribución
+- [ ] Mi código sigue el estilo de código del proyecto
+- [ ] He realizado un self-review de mi propio código
 - [ ] He comentado mi código, particularmente en áreas complejas
-- [ ] He actualizado la documentación correspondiente
+- [ ] He realizado cambios en la documentación si es necesario
 - [ ] Mis cambios no generan nuevas advertencias
-- [ ] He añadido tests que prueban que mi fix es efectivo o que mi funcionalidad funciona
-- [ ] Los tests nuevos y existentes pasan localmente con mis cambios
-- [ ] La aplicación se ejecuta correctamente sin errores en consola
-- [ ] He testeado en diferentes tamaños de pantalla
+- [ ] He ejecutado tests localmente
+- [ ] He verificado la accesibilidad (a11y)
+- [ ] He verificado responsividad en diferentes dispositivos
+
+## Testing
+Describe los tests realizados y pasos para verificar los cambios.
 
 ## Screenshots
-Añade screenshots para cambios visuales.
+Añade screenshots de los cambios visuales o nuevas funcionalidades.
 
-## Performance Impact
-Describe cualquier impacto en performance.
+## Breaking changes
+Describe cualquier breaking change y cómo migrar.
 
 ## Notas adicionales
-Añade cualquier información adicional relevante.
+Añade cualquier información adicional relevante para el reviewer.

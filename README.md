@@ -1,93 +1,60 @@
 # TrAIn Web
 
-Aplicación web para TrAIn (AI gym tracker) - Rastreador de ejercicios con IA.
+![CI Pipeline - Web](https://github.com/iagop03/train-web/actions/workflows/ci.yml/badge.svg)
 
-## Tech Stack
+Aplicación web para TrAIn (AI gym tracker) construida con Angular 17.
 
-- **Angular 17**
-- **TypeScript 5.x**
-- **RxJS**
-- **Material Design**
-- **Node.js 20+**
+## Características
 
-## Requisitos previos
+- ✅ Angular 17
+- ✅ TypeScript strict mode
+- ✅ Responsive design
+- ✅ PWA ready
+- ✅ CI/CD con GitHub Actions
+- ✅ Lighthouse CI
 
-- Node.js 20+
-- npm 10+
+## Requisitos
+
+- Node.js 18+
+- npm 9+
 - Angular CLI 17+
 
 ## Instalación
 
 ```bash
-# Clonar repositorio
 git clone https://github.com/iagop03/train-web.git
 cd train-web
-
-# Instalar dependencias
 npm install
-
-# Instalar Angular CLI
-npm install -g @angular/cli@17
-```
-
-## Scripts disponibles
-
-```bash
-# Desarrollo
-npm start                   # Ejecutar en desarrollo (ng serve)
-npm run dev                 # Ejecutar con HMR
-
-# Build
-npm run build              # Build para producción
-npm run build:prod         # Build optimizado
-
-# Tests
-npm test                   # Ejecutar tests (watch mode)
-npm run test:ci            # Ejecutar tests (CI mode)
-npm run e2e                # Ejecutar tests E2E
-
-# Linting
-npm run lint               # Ejecutar ESLint
-npm run lint:fix           # Arreglar problemas automáticamente
-npm run format             # Ejecutar Prettier
-
-# Docker
-npm run docker:build       # Buildear imagen Docker
-npm run docker:run         # Ejecutar en Docker
-```
-
-## Estructura del proyecto
-
-```
-src/
-├── app/
-│   ├── components/
-│   ├── services/
-│   ├── models/
-│   ├── pages/
-│   ├── guards/
-│   ├── interceptors/
-│   └── app-routing.module.ts
-├── assets/
-├── styles/
-├── environments/
-└── main.ts
 ```
 
 ## Desarrollo
 
 ```bash
-# Iniciar servidor de desarrollo
-npm start
+ng serve
+```
 
-# Navegar a http://localhost:4200/
-# La aplicación se recargará automáticamente si cambias los archivos
+La aplicación estará disponible en `http://localhost:4200`
+
+## Build
+
+```bash
+npm run build
+```
+
+## Testing
+
+```bash
+npm test
 ```
 
 ## Contribuir
 
-Ver [CONTRIBUTING.md](CONTRIBUTING.md)
+Por favor, lee [CONTRIBUTING.md](CONTRIBUTING.md) para detalles de nuestro código de conducta y proceso para enviarnos pull requests.
 
 ## Licencia
 
-MIT
+Este proyecto está bajo licencia MIT.
+
+## Contacto
+
+Para preguntas o sugerencias, contacta a [@iagop03](https://github.com/iagop03)

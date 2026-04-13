@@ -1,43 +1,59 @@
-# Angular
-/dist/
-/tmp/
-/out-tsc/
-/bazel-out/
-.angular/cache/
-
-# Node
-node_modules/
-npm-debug.log
-
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
-*~
+*.swn
 .DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Angular
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out
+
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+
+# System
 Thumbs.db
+.DS_Store
 
 # Environment
 .env
 .env.local
 .env.*.local
 
-# Logs
-logs/
-*.log
-
-# Dependencies
-package-lock.json
-yarn.lock
-
 # Testing
-/coverage/
-.karma-runner.config.js
-
-# Production
-/dist/
-.angular/cache/
-
-# Misc
-.history/
+/.karma-html/
+/karma-result

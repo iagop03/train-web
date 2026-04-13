@@ -1,162 +1,135 @@
 # Guía de Contribución - TrAIn Web
 
-## Código de Conducta
+## Comenzar
 
-Este proyecto se adhiere al [Código de Conducta Contributor Covenant](CODE_OF_CONDUCT.md).
+1. Fork el repositorio
+2. Clona tu fork: `git clone https://github.com/tu-usuario/train-web.git`
+3. Añade el repositorio upstream: `git remote add upstream https://github.com/iagop03/train-web.git`
+4. Crea una rama para tu feature: `git checkout -b feature/TRAIN-XXX-descripcion`
 
-## ¿Cómo contribuir?
+## Requisitos
 
-### Reportar bugs
+- Node.js 18+
+- npm 9+
+- Angular CLI 17+
 
-1. Verifica si el bug ya ha sido reportado en [Issues](https://github.com/iagop03/train-web/issues)
-2. Si no existe, crea un nuevo issue con:
-   - Título descriptivo
-   - Descripción detallada
-   - Pasos para reproducir
-   - Comportamiento esperado vs actual
-   - Navegadores/dispositivos testeados
-   - Screenshots si aplica
-
-### Sugerir mejoras
-
-1. Usa la etiqueta `enhancement` en los issues
-2. Proporciona descripción clara del caso de uso
-3. Mockups o screenshots si aplica
-
-### Pull Requests
-
-#### Setup
+## Configuración Local
 
 ```bash
-git clone https://github.com/iagop03/train-web.git
-cd train-web
+# Instalar dependencias
 npm install
-git checkout -b feature/TRAIN-XXX-descripcion
-```
 
-#### Desarrollo
-
-```bash
+# Ejecutar servidor de desarrollo
+ng serve
+# o
 npm start
-# Navega a http://localhost:4200
-```
 
-#### Commit
+# Ejecutar tests
+npm test
 
-Seguir [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat(auth): agregar login con Google
-fix(workouts): corregir filtro de ejercicios
-style(dashboard): mejorar responsive design
-docs(readme): actualizar instrucciones de setup
-```
-
-#### Antes de hacer Push
-
-```bash
-# Lint y format
-npm run lint:fix
-npm run format
-
-# Tests
-npm run test:ci
-
-# Build
+# Build para producción
 npm run build
 ```
 
-#### Enviar PR
+## Estándares de Código
 
-1. Push a tu fork
-2. Abre un PR contra `main` o `develop`
-3. Usa la plantilla de PR
-4. Completa todos los checkpoints
-5. Espera revisión (2+ aprobaciones requeridas)
+- Sigue la guía de estilo de Angular
+- Usa nombres descriptivos en inglés
+- Implementa one-way data binding
+- Usa TypeScript strict mode
+- Escribe tests para nuevas funcionalidades
+- Mantén cobertura de código > 80%
 
-## Estándares de código
-
-### TypeScript/Angular
-
-- TypeScript strict mode habilitado
-- ESLint + Prettier configurados
-- Angular style guide
-- Componentes standalone cuando sea posible
-- Reactive forms preferidas sobre template-driven
-
-### Naming
-
-- Componentes: `kebab-case.component.ts` (PascalCase en clase)
-- Servicios: `kebab-case.service.ts` (PascalCase en clase)
-- Interfaces: `IPascalCase.ts`
-- Directives: `pascalCase.directive.ts`
-- Variables: `camelCase`
-- Constantes: `UPPER_SNAKE_CASE`
-
-### Estructura de componentes
+## Convenciones de Commits
 
 ```
-src/app/
-├── components/
-│   └── my-component/
-│       ├── my-component.component.ts
-│       ├── my-component.component.html
-│       ├── my-component.component.scss
-│       ├── my-component.component.spec.ts
-│       └── index.ts
-├── services/
-├── models/
-└── guards/
+[TRAIN-XXX] Tipo: Descripción breve
+
+Descripción detallada si es necesario.
+
+Tipos permitidos:
+- feat: Nueva funcionalidad
+- fix: Corrección de bug
+- refactor: Refactorización de código
+- test: Añadir o actualizar tests
+- docs: Cambios en documentación
+- style: Cambios de formato
+- chore: Cambios en dependencias o configuración
 ```
 
-### Testing
+## Estructura de Componentes
 
-- Mínimo 80% de cobertura
-- Unit tests para servicios y pipes
-- Component tests para lógica compleja
-- Tests descriptivos
-
-```typescript
-describe('WorkoutService', () => {
-  it('should fetch workouts from API', () => {
-    // Given
-    const expected = [mockWorkout];
-    httpMock.expectOne('/api/workouts').flush(expected);
-
-    // When
-    service.getWorkouts().subscribe(actual => {
-      // Then
-      expect(actual).toEqual(expected);
-    });
-  });
-});
+```
+feature/
+├── feature.module.ts
+├── feature.component.ts
+├── feature.component.html
+├── feature.component.scss
+├── feature.component.spec.ts
+└── services/
+    └── feature.service.ts
 ```
 
-## Proceso de revisión
+## Pull Request Process
 
-1. **Automated checks**: CI pipeline debe pasar
-   - Lint
-   - Tests
-   - Build
-2. **Code review**: 2+ approvals de maintainers
-3. **Approval**: Squash & merge a main/develop
+1. Asegúrate de que tu rama está actualizada: `git pull upstream develop`
+2. Ejecuta tests localmente: `npm test`
+3. Ejecuta linting: `npm run lint`
+4. Build: `npm run build`
+5. Push a tu fork y crea un PR contra `develop`
+6. Llena el PR template completamente
+7. Incluye screenshots si hay cambios visuales
+8. Espera a que los CI checks pasen
+9. Solicita revisión de al menos 1 maintainer
+10. Responde a comentarios de revisión
+11. Merge solo después de aprobación
 
-## Performance
+## Testing
 
-- Lazy load módulos
-- OnPush change detection
-- Unsubscribe en ngOnDestroy
-- Minify imágenes
-- Code splitting
+Escribe tests para:
+- Lógica de componentes
+- Servicios y llamadas HTTP
+- Pipes y directivas
+- Guards
+- Interceptores
 
-## Accesibilidad
+```bash
+# Tests unitarios
+npm test
 
-- WCAG 2.1 AA
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- Color contrast
+# Tests e2e
+npm run e2e
 
-## Licencia
+# Cobertura
+npm run test:coverage
+```
 
-Al contribuir, aceptas que tu código será bajo licencia MIT.
+## Accesibilidad (a11y)
+
+- Usa atributos ARIA apropiados
+- Asegura navegación por teclado
+- Mantén contraste de colores WCAG AA
+- Usa semantic HTML
+
+## Responsive Design
+
+- Mobile-first approach
+- Breakpoints: 480px, 768px, 1024px, 1440px
+- Prueba en múltiples dispositivos
+
+## Reportar Bugs
+
+Abre un issue con:
+- Descripción clara del bug
+- Pasos para reproducir
+- Comportamiento esperado vs actual
+- Screenshot/video si aplica
+- Navegador y SO
+
+## Sugerir Mejoras
+
+Abre un issue con:
+- Descripción clara de la mejora
+- Caso de uso
+- Beneficios
+- Posibles alternativas

@@ -1,22 +1,22 @@
 # TrAIn Web Code Owners
-# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
-# Global owners
+# Default owners
 * @iagop03
 
-# Web frontend
-src/ @iagop03
-
-# Configuration
+# Configuration and build
+/.github/ @iagop03
+package.json @iagop03
 angular.json @iagop03
 tsconfig.json @iagop03
-package.json @iagop03
-package-lock.json @iagop03
+
+# Components and features
+/src/app/features/ @iagop03
+/src/app/components/ @iagop03
+
+# Services and state
+/src/app/services/ @iagop03
+/src/app/store/ @iagop03
 
 # Styles
-src/styles/ @iagop03
-src/assets/ @iagop03
-
-# DevOps
-Dockerfile @iagop03
-.github/ @iagop03
+/src/styles/ @iagop03
+/src/app/shared/styles/ @iagop03
