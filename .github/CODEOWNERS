@@ -1,0 +1,23 @@
+# Code owners for the TrAIn Web project
+
+# Default owner(s) for repository
+* @iagop03
+
+# Angular source code
+/src/app/ @iagop03
+
+# Tests
+/src/**/*.spec.ts @iagop03
+/e2e/ @iagop03
+
+# Configuration
+angular.json @iagop03
+tsconfig.json @iagop03
+package.json @iagop03
+
+# CI/CD
+/.github/workflows/ @iagop03
+
+# Documentation
+*.md @iagop03
+/docs/ @iagop03

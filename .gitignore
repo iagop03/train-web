@@ -1,34 +1,58 @@
-# Build
-dist/
-out-tsc/
-*.js.map
-*.d.ts
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Dependencies
-node_modules/
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# IDE
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
 .idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Visual Studio Code
 .vscode/
+
+# Angular CLI cache
+.angular/cache
+
+# Coverage
+/coverage
+.nyc_output
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+test.ts
 *.swp
 *.swo
 *~
 .DS_Store
 
-# Angular
-angular.json
-.angular/
-*.log
-
-# Tests
-coverage/
-.nyc_output/
-
 # Environment
 .env
 .env.local
-src/environments/environment.ts
+.env.*.local
 
-# npm
-package-lock.json
-yarn.lock
+# Build
+dist/
+build/

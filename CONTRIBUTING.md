@@ -1,145 +1,137 @@
 # Guía de Contribución - TrAIn Web
 
 ## Código de Conducta
+Sé respetuoso y constructivo con otros colaboradores.
 
-Este proyecto adopta el Código de Conducta del Contribuyente. Al participar, se espera que mantengas este código. Por favor reporta comportamiento inaceptable a los mantenedores del proyecto.
+## Proceso de Contribución
 
-## ¿Cómo Contribuir?
+### 1. Fork y Clone
+```bash
+git clone https://github.com/iagop03/train-web.git
+cd train-web
+```
 
-### Reportar Bugs
+### 2. Crear rama
+```bash
+git checkout -b feature/TRAIN-XXX-descripcion
+```
 
-1. **Usa un título descriptivo** para el issue
-2. **Describe exactamente el problema** observado
-3. **Proporciona pasos específicos** para reproducir
-4. **Describe el comportamiento esperado**
-5. **Incluye screenshots** si es relevante
-6. **Especifica el navegador** y versión (Chrome, Firefox, Safari, Edge)
+Nombrado de ramas:
+- `feature/TRAIN-XXX-descripcion` - Nueva funcionalidad
+- `bugfix/TRAIN-XXX-descripcion` - Corrección de bugs
+- `hotfix/TRAIN-XXX-descripcion` - Correcciones urgentes
+- `docs/TRAIN-XXX-descripcion` - Documentación
 
-### Sugerir Mejoras
+### 3. Commits
+```bash
+git commit -m "TRAIN-XXX: Descripción clara del cambio"
+```
 
-1. Usa un título descriptivo
-2. Proporciona una descripción clara
-3. Explica por qué sería útil
-4. Lista ejemplos alternos si existen
+Formato: `TRAIN-XXX: descripción`
 
-### Pull Requests
-
-1. **Fork y crea rama** desde `develop`:
-   ```bash
-   git checkout -b feature/TRAIN-XXX-descripcion
-   ```
-
-2. **Formato de commits**:
-   ```
-   [TRAIN-XXX] Título (50 caracteres máx)
-   
-   Descripción detallada. Explica qué y por qué.
-   
-   Fixes #123
-   ```
-
-3. **Ejecuta los tests**:
-   ```bash
-   npm test -- --watch=false
-   npm run lint
-   ```
-
-4. **Añade tests** para cambios
-
-5. **Push y abre PR** en `develop`
+### 4. Push y Pull Request
+```bash
+git push origin feature/TRAIN-XXX-descripcion
+```
 
 ## Estándares de Código
 
-### Convenciones
+### TypeScript/Angular
+- Usar Google TypeScript Style Guide
+- Máximo 100 caracteres por línea
+- Usar strict mode
+- Componentes en PascalCase
+- Variables y funciones en camelCase
+- Usar OnPush change detection cuando sea posible
 
-- **Componentes**: `PascalCase` (ej: `UserProfile`)
-- **Servicios**: `PascalCase` + `Service` (ej: `UserService`)
-- **Archivos**: `kebab-case` (ej: `user-profile.component.ts`)
-- **Métodos/Variables**: `camelCase`
-- **Constantes**: `UPPER_SNAKE_CASE`
-
-### Estructura de Componentes
-
+### Ejemplo:
 ```typescript
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UserService } from '@services/user.service';
-
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  selector: 'app-workout-list',
+  templateUrl: './workout-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserProfileComponent implements OnInit {
-  @Input() userId: string;
-  @Output() updated = new EventEmitter<User>();
-
-  user: User | null = null;
-  isLoading = false;
-  error: string | null = null;
-
-  constructor(private userService: UserService) {}
-
+export class WorkoutListComponent implements OnInit {
+  @Input() workouts$: Observable<Workout[]>;
+  
+  constructor(private workoutService: WorkoutService) {}
+  
   ngOnInit(): void {
-    this.loadUser();
-  }
-
-  loadUser(): void {
-    this.isLoading = true;
-    this.userService.getUser(this.userId).subscribe({
-      next: (user) => {
-        this.user = user;
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.error = err.message;
-        this.isLoading = false;
-      }
-    });
-  }
-
-  updateUser(): void {
-    if (this.user) {
-      this.userService.updateUser(this.user).subscribe({
-        next: (updated) => {
-          this.user = updated;
-          this.updated.emit(updated);
-        }
-      });
-    }
+    this.workouts$ = this.workoutService.getWorkouts();
   }
 }
 ```
 
-### Checklist
+## Testing
 
-- [ ] `npm run lint` pasa sin errores
-- [ ] `npm test` pasa
-- [ ] `npm run build` compila sin errores
-- [ ] He añadido tests unitarios
-- [ ] He testeado en navegadores principales
-- [ ] He revisado responsive design
-- [ ] La documentación está actualizada
-- [ ] No hay warnings en la consola
+### Cobertura Mínima
+- 80% de cobertura en statements
+- Todos los componentes testeados
+- E2E tests para flujos críticos
 
-## Proceso de Review
+### Estructura de Tests
+```typescript
+describe('WorkoutListComponent', () => {
+  let component: WorkoutListComponent;
+  let fixture: ComponentFixture<WorkoutListComponent>;
+  
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [WorkoutListComponent],
+    }).compileComponents();
+    
+    fixture = TestBed.createComponent(WorkoutListComponent);
+    component = fixture.componentInstance;
+  });
+  
+  describe('cuando el componente carga', () => {
+    it('debe mostrar lista de entrenamientos', () => {
+      // Given
+      // When
+      // Then
+    });
+  });
+});
+```
 
-1. Mínimo 2 approvals requeridos
-2. Todos los checks deben pasar
-3. Debe estar actualizado con `develop`
-4. No debe haber cambios solicitados
+## Pull Request
 
-## Merge a Producción
+### Checklist antes de enviar
+- [ ] Tests pasan localmente
+- [ ] Cobertura >= 80%
+- [ ] Lint sin errores
+- [ ] Build sin errores
+- [ ] Lighthouse score >= 90
+- [ ] Documentación actualizada
+- [ ] CHANGELOG actualizado
 
-- Solo desde `main`
-- 3 approvals requeridos
-- Todos los checks pasados
-- Merge requiere squash
+### Descripción del PR
+Usar la plantilla provista en `.github/pull_request_template.md`
 
-## Ayuda Adicional
+## Branch Protection Rules
 
-- [Angular Documentation](https://angular.io/docs)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [RxJS Guide](https://rxjs.dev/)
-- [Git Workflow](https://guides.github.com/introduction/flow/)
+1. ✅ Require pull request reviews before merging (1 approval)
+2. ✅ Require status checks to pass before merging
+   - Build must pass
+   - Tests must pass
+   - Code coverage >= 80%
+   - Lighthouse CI must pass
+3. ✅ Require branches to be up to date before merging
+4. ✅ Require code reviews from code owners
+5. ✅ Dismiss stale pull request approvals
 
-¡Gracias por contribuir! 🎉
+## Accesibilidad (a11y)
+- Usar ARIA labels cuando sea necesario
+- Verificar contraste de colores (WCAG AA)
+- Soportar navegación por teclado
+- Tests de a11y con axe-core
+
+## Versionado
+Seguimos [Semantic Versioning](https://semver.org/):
+- MAJOR.MINOR.PATCH (ej: 1.2.3)
+- MAJOR: cambios incompatibles
+- MINOR: nueva funcionalidad compatible
+- PATCH: correcciones de bugs
+
+## Licencia
+Al contribuir, aceptas que tu código será licenseado bajo MIT.

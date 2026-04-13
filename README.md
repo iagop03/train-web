@@ -1,136 +1,87 @@
-# TrAIn Web
+# TrAIn - AI Gym Tracker Web
 
-Aplicación web para TrAIn (AI Gym Tracker) construida con Angular v17.
+## Descripción
+Aplicación web para TrAIn (AI Gym Tracker) desarrollada con Angular v17. Proporciona una interfaz responsiva para gestionar entrenamientos y obtener análisis de IA.
 
 ## Stack Tecnológico
-
 - **Angular 17**
 - **TypeScript**
+- **Bootstrap / Tailwind CSS**
 - **RxJS**
 - **Angular Material**
-- **TailwindCSS**
-- **Karma/Jasmine** (Testing)
-- **Cypress** (E2E Testing)
+- **GCP** (Hosting)
 
 ## Requisitos Previos
-
-- Node.js 18+ / npm 9+
+- Node.js 18+
+- npm 9+ o yarn
 - Angular CLI 17+
 
-## Instalación
+## Instalación Local
 
-### 1. Clonar el repositorio
 ```bash
+# Clonar repositorio
 git clone https://github.com/iagop03/train-web.git
 cd train-web
-```
 
-### 2. Instalar dependencias
-```bash
+# Instalar dependencias
 npm install
-```
 
-### 3. Configurar variables de entorno
-```bash
-cp src/environments/environment.example.ts src/environments/environment.ts
-# Editar environment.ts con tus valores
-```
+# Configurar variables de entorno
+cp .env.example .env.local
 
-## Desarrollo
-
-### Servidor de desarrollo
-```bash
+# Ejecutar en desarrollo
 ng serve
-# o
-npm start
-```
-
-Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias los archivos.
-
-### Generar un nuevo componente
-```bash
-ng generate component components/mi-componente
-```
-
-## Build
-
-### Producción
-```bash
-ng build --configuration production
-# o
-npm run build
-```
-
-Los artefactos de build se almacenarán en el directorio `dist/`.
-
-## Testing
-
-### Unit tests
-```bash
-ng test
-# o
-npm test
-```
-
-### E2E tests
-```bash
-ng e2e
-# o
-npm run e2e
-```
-
-### Coverage
-```bash
-ng test --code-coverage
 ```
 
 ## Estructura del Proyecto
-
 ```
-src/
-├── app/
-│   ├── components/       # Componentes reutilizables
-│   ├── pages/            # Componentes de páginas
-│   ├── services/         # Servicios (API, autenticación)
-│   ├── guards/           # Guards de rutas
-│   ├── interceptors/     # Interceptores HTTP
-│   ├── models/           # Interfaces y tipos
-│   ├── directives/       # Directivas personalizadas
-│   ├── pipes/            # Pipes personalizados
-│   └── app.routes.ts     # Rutas de la aplicación
-├── assets/               # Recursos estáticos
-├── styles/               # Estilos globales
-└── environments/         # Configuraciones por ambiente
+train-web/
+├── src/
+│   ├── app/
+│   │   ├── core/
+│   │   ├── shared/
+│   │   ├── features/
+│   │   │   ├── auth/
+│   │   │   ├── workouts/
+│   │   │   ├── exercises/
+│   │   │   └── analytics/
+│   │   ├── app.module.ts
+│   │   └── app.component.ts
+│   ├── assets/
+│   ├── environments/
+│   └── main.ts
+├── angular.json
+├── tsconfig.json
+└── package.json
 ```
 
-## Convenciones
+## Testing
+```bash
+# Unit tests
+ng test
 
-- **Componentes**: PascalCase (ej: UserProfile)
-- **Servicios**: PascalCase + 'Service' (ej: UserService)
-- **Archivos**: kebab-case (ej: user-profile.component.ts)
-- **Módulos**: Feature modules por dominio
+# E2E tests
+ng e2e
 
-## Contribuir
+# Coverage
+ng test --code-coverage
+```
 
-1. Crear rama: `git checkout -b feature/TRAIN-XXX`
-2. Hacer cambios: `git commit -am 'Add feature'`
-3. Push: `git push origin feature/TRAIN-XXX`
-4. Pull Request
+## Build
+```bash
+# Build para producción
+ng build --configuration production
 
-## Branch Protection
+# Analizar bundle
+ng build --stats-json
+webpack-bundle-analyzer dist/train-web/stats.json
+```
 
-Configuraciones en `main` y `develop`:
-- Requerir pull request reviews (mínimo 2)
-- Requerir que los checks pasen
-- Descartar aprobaciones obsoletas
-- Requerir actualización antes de mergear
+## Deployment
+Ver [DEPLOYMENT.md](./docs/DEPLOYMENT.md) para instrucciones de deployment a GCP.
 
-## Documentación
-
-- [Angular Docs](https://angular.io/docs)
-- [Material Design](https://material.angular.io/)
-- [TailwindCSS](https://tailwindcss.com/)
+## Contribución
+Por favor revisa [CONTRIBUTING.md](./CONTRIBUTING.md) antes de hacer cambios.
 
 ## Licencia
-
 MIT

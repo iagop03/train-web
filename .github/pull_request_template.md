@@ -1,33 +1,34 @@
 ## Descripción
-Breve descripción de los cambios realizados.
+Por favor incluir un resumen de los cambios realizados.
 
 ## Tipo de cambio
-- [ ] Bug fix (corrección de un problema)
-- [ ] Nueva característica (funcionalidad nueva)
-- [ ] Breaking change (cambio incompatible)
-- [ ] Cambio en documentación
-- [ ] Mejora de estilos/UI
+- [ ] Bug fix (cambio que soluciona un problema)
+- [ ] Nueva feature (cambio que añade funcionalidad)
+- [ ] Breaking change (cambio que causa incompatibilidad)
+- [ ] Actualización de dependencias
+- [ ] Documentación
 
-## Testing
-- [ ] He ejecutado la aplicación localmente
-- [ ] He testeado en los navegadores principales
-- [ ] He ejecutado tests unitarios
-- [ ] He revisado la consola del navegador (sin errores)
+## Testing realizado
+Describe los tests realizados:
+- [ ] Unit tests
+- [ ] E2E tests
+- [ ] Manual testing en desktop
+- [ ] Manual testing en mobile
+
+## Performance
+- [ ] He verificado el impacto en performance
+- [ ] He ejecutado Lighthouse audit
+- [ ] Bundle size se ha mantenido o reducido
 
 ## Checklist
-- [ ] Mi código sigue las convenciones de estilo del proyecto
-- [ ] He realizado self-review
+- [ ] Mi código sigue las guías de estilo del proyecto
+- [ ] He realizado auto-review
 - [ ] He añadido comentarios en código complejo
 - [ ] He actualizado la documentación
-- [ ] He testeado responsividad en mobile
-- [ ] He añadido tests unitarios (si aplica)
+- [ ] Tests nuevos y existentes pasan
+- [ ] No hay warnings de console
+- [ ] Accesibilidad verificada (a11y)
 
-## Screenshots
-Añade screenshots del cambio visual.
+## Screenshots/Videos (si aplica)
 
-Before:
-
-After:
-
-## Información adicional
-Añade información relevante adicional.
+## Notas adicionales
