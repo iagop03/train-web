@@ -1,35 +1,43 @@
+# Angular
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+.angular/cache/
+
 # Node
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Angular
-.angular/
-dist/
-build/
+npm-debug.log
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
-*.sublime-workspace
+*~
+.DS_Store
+Thumbs.db
 
 # Environment
 .env
 .env.local
 .env.*.local
 
-# OS
-.DS_Store
-Thumbs.db
+# Logs
+logs/
+*.log
+
+# Dependencies
+package-lock.json
+yarn.lock
 
 # Testing
-coverage/
-.nyc_output/
+/coverage/
+.karma-runner.config.js
 
-# Security
-*.pem
-*.key
-gcp-key.json
+# Production
+/dist/
+.angular/cache/
+
+# Misc
+.history/

@@ -1,27 +1,23 @@
 # TrAIn Web
 
-**AI Gym Tracker** - Web Frontend Angular v17
+Aplicación web Angular v17 para TrAIn - AI Gym Tracker.
 
-Aplicación web para el seguimiento de ejercicios en el gimnasio.
+## Stack Tecnológico
 
-## Características
+- **Angular 17**
+- **TypeScript 5.2+**
+- **RxJS**
+- **Angular Material**
+- **Keycloak** (Autenticación)
+- **Google Cloud Platform**
 
-- ✅ Framework Angular v17
-- ✅ Autenticación con Keycloak
-- ✅ Material Design
-- ✅ PWA Ready
-- ✅ CI/CD con GitHub Actions
+## Prerequisitos
 
-## Tecnologías
+- Node.js 18.x o superior
+- npm 9.x o yarn 3.x
+- Angular CLI 17.x
 
-- **Framework**: Angular v17
-- **Node.js**: 20.x
-- **UI Library**: Angular Material
-- **Autenticación**: Keycloak
-- **Testing**: Jasmine, Karma
-- **Build Tool**: Webpack
-
-## Inicio Rápido
+## Instalación
 
 ```bash
 # Clonar repositorio
@@ -31,26 +27,85 @@ cd train-web
 # Instalar dependencias
 npm install
 
-# Ejecutar en desarrollo
-npm start
-# o
-ng serve
+# Configurar variables de entorno
+cp .env.example .env.local
 ```
 
-La aplicación estará disponible en `http://localhost:4200`
-
-## Documentación
-
-Ver [CONTRIBUTING.md](CONTRIBUTING.md) para instrucciones de desarrollo.
-
-## Build para Producción
+## Development Server
 
 ```bash
-npm run build:prod
-# o
+# Iniciar servidor de desarrollo
+ng serve
+
+# Navegar a http://localhost:4200/
+```
+
+## Build
+
+```bash
+# Build de producción
 ng build --configuration production
 ```
 
-## Licencia
+## Testing
 
-MIT
+```bash
+# Unit tests
+ng test
+
+# E2E tests
+ng e2e
+
+# Coverage
+ng test --code-coverage
+```
+
+## Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── features/
+│   │   ├── auth/
+│   │   ├── workouts/
+│   │   ├── exercises/
+│   │   └── dashboard/
+│   ├── shared/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── interceptors/
+│   │   ├── guards/
+│   │   └── models/
+│   ├── core/
+│   │   └── services/
+│   ├── app.component.ts
+│   └── app.routes.ts
+├── assets/
+├── styles/
+├── main.ts
+└── index.html
+```
+
+## Code Style
+
+```bash
+# Format con Prettier
+npm run prettier
+
+# Lint con ESLint
+npm run lint
+
+# Lint fix
+npm run lint:fix
+```
+
+## Contributing
+
+1. Crear feature branch: `git checkout -b feature/TRAIN-XXX`
+2. Commit changes: `git commit -am 'feat: descripción'`
+3. Push a branch: `git push origin feature/TRAIN-XXX`
+4. Abrir Pull Request
+
+## License
+
+MIT License
